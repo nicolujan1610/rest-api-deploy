@@ -8,26 +8,7 @@ const app = express()
 app.disable('x-powered-by')
 
 app.use(express.json())
-app.use(cors({
-  origin: (origin, callback) => {
-    const ACCEPTED_ORIGINS = [
-      'http://localhost:8080',
-      'http://localhost:7777',
-      'http://localhost:1234',
-      'https://nicolujan1610.github.io',
-    ]
-
-    if(ACCEPTED_ORIGINS.includes(origin)){
-      return callback(null, true)
-    }
-
-    if(!origin) {
-      return callback(null, true)
-    }
-
-    return callback(new Error('Not allowed by CORS'))
-  }
-}))
+app.use(cors())
 
 
 
